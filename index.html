@@ -41,13 +41,24 @@
         }
 
         #lockCircle {
-            height:50vmin;
-            width:50vmin;
+            height:40vmin;
+            width:40vmin;
             border-radius:100%;
             background:white;
             position:absolute;
             top:50%;
-            left:50%;
+            left:25%;
+            transform: translate(-50%, -50%);
+        }
+
+        #unlockCircle {
+            height:40vmin;
+            width:40vmin;
+            border-radius:100%;
+            background:white;
+            position:absolute;
+            top:50%;
+            left:75%;
             transform: translate(-50%, -50%);
         }
     </style>
@@ -69,17 +80,7 @@
     <div id="headerLine"></div>
     <div id="headerCircle" onclick="revealMenu()"></div>
 
-    <div id="lockCircle" onclick="navigator.bluetooth.requestDevice({
-  acceptAllDevices: true,
-  optionalServices: ['battery_service']
-}).then(device => {
-  // Human-readable name of the device.
-  console.log(device.name);
-
-  // Attempts to connect to remote GATT Server.
-  return device.gatt.connect();
-})
-.then(device => { /* ... */ })
-.catch(error => { console.log(error); });"></div>
+    <div id="lockCircle"></div>
+    <div id="unlockCircle"></div>
 </body>
 </html>
